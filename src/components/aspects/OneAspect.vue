@@ -1,32 +1,36 @@
 <template>
   <div class="aspect">
     <img :src="aspect_image" alt="aspect image" />
-    <h1>{{ aspect_name }}</h1>
-    <p>{{ aspect_description }}</p>
+    <h1>{{ aspectName }}</h1>
+    <p>{{ aspectDescription }}</p>
   </div>
 </template>
 
 <script lang="ts">
-export default {
+import { defineComponent, PropType } from 'vue';
+
+export default defineComponent({
   name: "OneAspect",
   props: {
-    aspectImage: String,
-    aspectName: String,
-    aspectDescription: String,
+    aspectImage: {
+      type: String as PropType<string>,
+      required: true,
+    },
+    aspectName: {
+      type: String,
+      required: true,
+    },
+    aspectDescription: {
+      type: String,
+      required: true,
+    },
   },
   computed: {
     aspect_image() {
-      return require(this.aspectImage);
-    },
-    aspect_name() {
-      return this.aspectName;
-    },
-    aspect_description() {
-      return this.aspectDescription;
+      return this.aspectImage;
     },
   },
-};
-
+});
 </script>
 
 <style lang="scss" scoped>

@@ -1,10 +1,8 @@
 const { defineConfig } = require('@vue/cli-service')
+
 module.exports = defineConfig({
-  transpileDependencies: true,
-  resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx'],
-    alias: {
-      '@': require('path').resolve(__dirname, 'src'),
-    },
+  chainWebpack: (config) => {
+    config.resolve.extensions.add('.ts').add('.tsx')
   },
+  transpileDependencies: ['vue'],
 })
