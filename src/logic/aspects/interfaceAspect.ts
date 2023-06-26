@@ -1,4 +1,12 @@
-const all_aspects = {
+interface Aspect {
+  name: string
+  image: string
+  description: string
+  type: string
+  craft: null | object
+}
+
+const all_aspects: { [key: string]: Aspect } = {
   ignis: {
     name: 'Ignis',
     image: '@/assets/images/aspects/Ignis.webp',
